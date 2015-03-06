@@ -12,6 +12,8 @@ require 'accepton'
 require 'rspec'
 require 'webmock/rspec'
 
+Dir['./spec/support/**/*.rb'].each { |file| require file }
+
 WebMock.disable_net_connect!
 
 RSpec.configure do |config|
