@@ -16,6 +16,7 @@ group :test do
   gem 'rubocop', '>= 0.28'
   gem 'simplecov'
   gem 'webmock'
+  gem 'yardstick'
 end
 
 gemspec
