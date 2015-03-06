@@ -6,7 +6,7 @@ RSpec.describe AcceptOn::Request do
   describe '#perform' do
     subject { request.perform }
 
-    before { stub_get('/path').to_return(body: '') }
+    before { stub_get('/path').to_return(body: '{}', headers: {content_type: 'application/json; charset=utf-8'}) }
 
     it 'sets the bearer authentication header from the client api key' do
       subject

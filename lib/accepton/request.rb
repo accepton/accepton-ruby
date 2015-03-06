@@ -1,4 +1,5 @@
 require 'addressable/uri'
+require 'hashie/mash'
 require 'http'
 require 'accepton/headers'
 
@@ -22,9 +23,21 @@ module AcceptOn
       @headers = AcceptOn::Headers.new(@client).request_headers
     end
 
+    # @return [Hashie::Mash] if the request reutrns a success code
+    # @raise [AcceptOn::Error] if the request returns a failure code
     def perform
       options_key = @request_method == :get ? :params : :form
-      HTTP.with(@headers).public_send(@request_method, @uri.to_s, options_key => @options)
+      response = HTTP.with(@headers).public_send(@request_method, @uri.to_s, options_key => @options)
+      response_body = Hashie::Mash.new(response.parse)
+      fail_or_return_response_body(response_body, response.code)
+    end
+
+    private
+
+    def fail_or_return_response_body(body, status_code)
+      error = AcceptOn::Error.from_response(body, status_code)
+      fail(error) if error
+      body
     end
   end
 end

@@ -1,5 +1,9 @@
+require 'accepton/api/tokenization'
+
 module AcceptOn
   class Client
+    include AcceptOn::API::Tokenization
+
     attr_accessor :api_key
     attr_writer :user_agent
 

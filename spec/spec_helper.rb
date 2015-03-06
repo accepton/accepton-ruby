@@ -9,6 +9,7 @@ if ENV['COVERAGE'] || ENV['CI']
 end
 
 require 'accepton'
+require 'pry'
 require 'rspec'
 require 'webmock/rspec'
 
