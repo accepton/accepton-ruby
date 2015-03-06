@@ -19,7 +19,7 @@ end
 
 require 'yardstick/rake/verify'
 Yardstick::Rake::Verify.new do |verify|
-  verify.threshold = 56.3
+  verify.threshold = 60.0
   verify.require_exact_threshold = false
 end
 
