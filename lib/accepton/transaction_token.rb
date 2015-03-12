@@ -1,7 +1,7 @@
 module AcceptOn
   class TransactionToken
     # @attr_reader amount [Integer] The amount of the transaction
-    # @attr_reader create [DateTime] The time the transaction was created
+    # @attr_reader created [DateTime] The time the transaction was created
     # @attr_reader description [String] A description of the transaction
     # @attr_reader id [String] The transaction identifier
     # @api public
