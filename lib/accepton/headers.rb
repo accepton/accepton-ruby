@@ -9,8 +9,9 @@ module AcceptOn
     # @return [Hash]
     def request_headers
       headers = {}
-      headers[:user_agent] = @client.user_agent
+      headers[:accept] = 'application/json'
       headers[:authorization] = bearer_auth_header
+      headers[:user_agent] = @client.user_agent
       headers
     end
 
