@@ -22,7 +22,7 @@ module AcceptOn
       # @raise [AcceptOn::Error] If an API error happens
       # @return [AcceptOn::TransactionToken]
       def create_token(args = {})
-        perform_post_with_object('/tokens', args, AcceptOn::TransactionToken)
+        perform_post_with_object('/v1/tokens', args, AcceptOn::TransactionToken)
       end
     end
   end

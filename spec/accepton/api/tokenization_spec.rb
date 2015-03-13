@@ -3,7 +3,7 @@ RSpec.describe AcceptOn::API::Tokenization do
 
   describe '#create_token' do
     let(:token_request) do
-      stub_post('/tokens')
+      stub_post('/v1/tokens')
     end
 
     subject { client.create_token(params) }
