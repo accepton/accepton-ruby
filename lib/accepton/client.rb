@@ -4,7 +4,7 @@ module AcceptOn
   class Client
     include AcceptOn::API::Tokenization
 
-    attr_accessor :api_key
+    attr_accessor :api_key, :environment
     attr_writer :user_agent
 
     # Initializes a new Client object
@@ -15,6 +15,7 @@ module AcceptOn
       options.each do |key, value|
         instance_variable_set("@#{key}", value)
       end
+      set_defaults
       yield(self) if block_given?
     end
 
@@ -26,6 +27,13 @@ module AcceptOn
     # @return [String]
     def user_agent
       @user_agent ||= "accepton-ruby/#{AcceptOn::VERSION}"
+    end
+
+    private
+
+    # @return [void]
+    def set_defaults
+      self.environment = :production unless environment
     end
   end
 end

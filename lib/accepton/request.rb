@@ -5,7 +5,10 @@ require 'accepton/headers'
 
 module AcceptOn
   class Request
-    BASE_URL = 'http://checkout.accepton.dev'
+    URLS = {
+      development: 'http://checkout.accepton.dev',
+      production: 'https://accepton.launchtrack.com'
+    }.freeze
 
     attr_accessor :client, :headers, :options, :path
 
@@ -15,11 +18,13 @@ module AcceptOn
     # @param options [Hash]
     # @return [Accepton::Request]
     def initialize(client, request_method, path, options = {})
+      options = default_options.merge(options)
+      url = URLS[options.delete(:environment)]
       @client = client
       @request_method = request_method
-      @uri = Addressable::URI.parse(path.start_with?('http') ? path : BASE_URL + path)
-      @path = @uri.path
+      @uri = Addressable::URI.parse(path.start_with?('http') ? path : url + path)
       @options = options
+      @path = @uri.path
       @headers = AcceptOn::Headers.new(@client).request_headers
     end
 
@@ -38,6 +43,11 @@ module AcceptOn
       error = AcceptOn::Error.from_response(body, status_code)
       fail(error) if error
       body
+    end
+
+    # @return [Hash]
+    def default_options
+      {environment: :production}
     end
   end
 end

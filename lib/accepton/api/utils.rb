@@ -14,7 +14,7 @@ module AcceptOn
       # @param path [String]
       # @param params [Hash]
       def perform_request(request_method, path, params)
-        AcceptOn::Request.new(self, request_method, path, params).perform
+        AcceptOn::Request.new(self, request_method, path, with_environment(params)).perform
       end
 
       # @param request_method [String, Symbol]
@@ -24,6 +24,10 @@ module AcceptOn
       def perform_request_with_object(request_method, path, params, klass)
         response = perform_request(request_method, path, params)
         klass.new(response)
+      end
+
+      def with_environment(params)
+        params.merge(environment: environment)
       end
     end
   end
