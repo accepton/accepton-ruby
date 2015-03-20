@@ -15,9 +15,14 @@ module AcceptOn
       # @example Create a transaction token with a description
       #   create_token(amount: 1_00, description: 'Test')
       #
+      # @example Create a transaction token with a description and application fee
+      #   create_token(amount: 10_99, description: 'Test', application_fee: 99)
+      #
       # @param args [Hash] Attributes to set to the transaction token
       # @option args [Integer] :amount The amount in cents of the transaction
-      # @option args [String] :description A description of the transaction
+      # @option args [String]  :description A description of the transaction
+      # @option args [Integer] :application_fee The application fee to be passed on to the processor
+      # @option args [String]  :currency The currency to charge in (default: usd)
       #
       # @raise [AcceptOn::Error] If an API error happens
       # @return [AcceptOn::TransactionToken]
