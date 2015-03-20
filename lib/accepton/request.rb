@@ -7,7 +7,7 @@ module AcceptOn
   class Request
     URLS = {
       development: 'http://checkout.accepton.dev',
-      production: 'https://accepton.launchtrack.com'
+      production: 'https://checkout.accepton.com'
     }.freeze
 
     attr_accessor :client, :headers, :options, :path
