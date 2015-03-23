@@ -19,7 +19,7 @@ module AcceptOn
     # @return [Accepton::Request]
     def initialize(client, request_method, path, options = {})
       options = default_options.merge(options)
-      url = URLS[options.delete(:environment)]
+      url = URLS[options.delete(:environment).to_sym]
       @client = client
       @request_method = request_method
       @uri = Addressable::URI.parse(path.start_with?('http') ? path : url + path)
