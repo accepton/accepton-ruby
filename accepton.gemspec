@@ -7,9 +7,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ['AcceptOn']
   spec.email         = ['developers@accepton.com']
 
-  spec.summary       = 'TODO: Write a short summary, because Rubygems requires one.'
-  spec.description   = 'TODO: Write a longer description or delete this line.'
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "AcceptOn allows you to get paid in your customer's preferred method"
+  spec.description   = "AcceptOn allows you to get paid in your customer's preferred method"
+  spec.homepage      = "https://accepton.com"
   spec.license       = 'TODO'
 
   spec.files         = `git ls-files`.split($ORS).reject { |f| f.match(/^(spec)\//) }
