@@ -1,7 +1,9 @@
+require 'accepton/api/refunding'
 require 'accepton/api/tokenization'
 
 module AcceptOn
   class Client
+    include AcceptOn::API::Refunding
     include AcceptOn::API::Tokenization
 
     attr_accessor :api_key, :environment

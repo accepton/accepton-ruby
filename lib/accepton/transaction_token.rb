@@ -1,5 +1,7 @@
+require 'accepton/base'
+
 module AcceptOn
-  class TransactionToken
+  class TransactionToken < Base
     # @attr_reader amount [Integer] The amount of the transaction in cents
     # @attr_reader application_fee [Integer] The amount of application fee
     # @attr_reader created [DateTime] The time the transaction was created
@@ -11,16 +13,5 @@ module AcceptOn
     # @api public
     attr_reader :amount, :application_fee, :created, :description, :id,
                 :merchant_paypal_account
-
-    # Creates a model representation of a transaction token
-    #
-    # @api public
-    # @return [Acception::TransactionToken]
-    def initialize(args = {})
-      args.each do |key, value|
-        instance_variable_set("@#{key}", value)
-      end
-      yield(self) if block_given?
-    end
   end
 end
