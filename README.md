@@ -1,6 +1,6 @@
 # AcceptOn
 
-TODO: Write an introduction.
+Please see http://developers.accepton.com for more information.
 
 ## Installation
 
@@ -17,10 +17,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install accepton
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
