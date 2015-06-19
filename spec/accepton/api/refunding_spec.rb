@@ -7,7 +7,7 @@ RSpec.describe AcceptOn::API::Refunding do
     subject { client.refund(params) }
 
     context 'for a complete request' do
-      let(:params) { {amount: 1_00, authorization_id: 'chg_123'} }
+      let(:params) { {amount: 1_00, charge_id: 'chg_123'} }
 
       before do
         refund_request.to_return(body: fixture('refund.json'), headers: {content_type: 'application/json'})
