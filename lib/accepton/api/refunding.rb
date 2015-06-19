@@ -10,11 +10,11 @@ module AcceptOn
       # @api public
       #
       # @example Create a refund of $1.00 on charge chg_47ce6dacb1ec5124
-      #   refund(amount: 1_00, authorization_id: 'chg_47ce6dacb1ec5124')
+      #   refund(amount: 1_00, charge_id: 'chg_47ce6dacb1ec5124')
       #
       # @param args [Hash] Attributes to set on the refund
       # @option args [Integer] :amount The amount in cents to refund
-      # @option args [String] :authorization_id The id of the charge to refund
+      # @option args [String] :charge_id The id of the charge to refund
       #
       # @raise [AcceptOn::Error] If an API error happens
       # @return [AcceptOn::Refund]
