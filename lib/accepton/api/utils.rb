@@ -1,3 +1,5 @@
+require 'accepton/request'
+
 module AcceptOn
   module API
     module Utils
