@@ -18,6 +18,14 @@ Or install it yourself as:
 
     $ gem install accepton
 
+Then, initialize the client like so:
+
+```ruby
+require "accepton"
+
+client = AcceptOn::Client.new(api_key: API_KEY, environment: :staging)
+```
+
 ## Contributing
 
 1. Fork it
