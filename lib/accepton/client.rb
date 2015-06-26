@@ -1,8 +1,10 @@
+require 'accepton/api/querying'
 require 'accepton/api/refunding'
 require 'accepton/api/tokenization'
 
 module AcceptOn
   class Client
+    include AcceptOn::API::Querying
     include AcceptOn::API::Refunding
     include AcceptOn::API::Tokenization
 

@@ -1,5 +1,3 @@
-require 'accepton/base'
-
 module AcceptOn
   class TransactionToken < Base
     # @attr_reader amount [Integer] The amount of the transaction in cents

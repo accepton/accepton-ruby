@@ -1,5 +1,3 @@
-require 'accepton/base'
-
 module AcceptOn
   class Refund < Base
     # @attr_reader amount [Integer] The amount of the refund in cents
