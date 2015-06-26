@@ -12,8 +12,8 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://accepton.com"
   spec.license       = 'TODO'
 
-  spec.files         = `git ls-files`.split($ORS).reject { |f| f.match(/^(spec)\//) }
-  spec.executables   = spec.files.grep(/^bin\//) { |f| File.basename(f) }
+  spec.files  = %w[.yardopts README.md Rakefile accepton.gemspec]
+  spec.files += Dir['lib/**/*.rb']
   spec.require_paths = ['lib']
 
   spec.add_dependency 'hashie', '~> 3.4'
