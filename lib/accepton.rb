@@ -1,6 +1,8 @@
 require 'accepton/client'
 require 'accepton/error'
 require 'accepton/headers'
+require 'accepton/promo_code'
+require 'accepton/refund'
 require 'accepton/request'
 require 'accepton/version'
 

@@ -10,6 +10,15 @@ module AcceptOn
       # @param klass [Class]
       #
       # @return [klass]
+      def perform_delete_with_object(path, params, klass)
+        perform_request_with_object(:delete, path, params, klass)
+      end
+
+      # @param path [String]
+      # @param params [Hash]
+      # @param klass [Class]
+      #
+      # @return [klass]
       def perform_get_with_object(path, params, klass)
         perform_request_with_object(:get, path, params, klass)
       end
@@ -30,6 +39,13 @@ module AcceptOn
       # @return [klass]
       def perform_post_with_object(path, params, klass)
         perform_request_with_object(:post, path, params, klass)
+      end
+
+      # @param path [String]
+      # @param params [Hash]
+      # @param klass [Class]
+      def perform_put_with_object(path, params, klass)
+        perform_request_with_object(:put, path, params, klass)
       end
 
       # @param request_method [String, Symbol]
