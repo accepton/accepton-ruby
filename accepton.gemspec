@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "AcceptOn allows you to get paid in your customer's preferred method"
   spec.description   = "AcceptOn allows you to get paid in your customer's preferred method"
-  spec.homepage      = "https://accepton.com"
+  spec.homepage      = "https://developers.accepton.com"
   spec.license       = 'MIT'
 
   spec.files  = %w[.yardopts LICENSE.md README.md Rakefile accepton.gemspec]
