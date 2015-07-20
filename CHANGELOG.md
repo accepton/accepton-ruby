@@ -6,8 +6,14 @@ scheme are considered to be bugs.
 
 [semver]: http://semver.org/spec/v2.0.0.html
 
+## [Unreleased][unreleased]
+
+- Nothing yet.
+
 ## 0.1.0 - 2015-07-20
 
 ### Added
 
 - Initial version.
+
+[unreleased]: https://github.com/accepton/accepton-ruby/compare/v0.1.0...HEAD
