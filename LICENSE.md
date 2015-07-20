@@ -1,3 +1,5 @@
+The MIT License (MIT)
+
 Copyright (c) 2015 AcceptOn, Inc. (https://accepton.com)
 
 Permission is hereby granted, free of charge, to any person obtaining
