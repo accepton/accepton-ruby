@@ -2,7 +2,11 @@
 
 [![Build Status](https://circleci.com/gh/accepton/accepton-ruby.svg?style=shield&circle-token=76d9d3cf6e881e7a80b22cc68c223725ade7fa31)](https://circleci.com/gh/accepton/accepton-ruby)
 
-Please see http://developers.accepton.com for more information.
+## Documentation
+
+Please see the [Ruby developer documentation][rubydocs] for more information.
+
+[rubydocs]: http://developers.accepton.com/?ruby
 
 ## Installation
 
