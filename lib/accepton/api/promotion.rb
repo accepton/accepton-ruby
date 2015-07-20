@@ -52,21 +52,6 @@ module AcceptOn
                                    AcceptOn::PromoCode)
       end
 
-      # Retrieves a promo code from AcceptOn
-      #
-      # @api public
-      #
-      # @example Retrieves the promo code with the name "20OFF"
-      #   client.promo_code('20OFF')
-      #
-      # @param name [String] The name of the promo code to retrieve.
-      #
-      # @raise [AcceptOn::Error] If an API error happens
-      # @return [AcceptOn::PromoCode] The retrieved promo code
-      def promo_code(name)
-        perform_get_with_object("/v1/promo_codes/#{name}", {}, AcceptOn::PromoCode)
-      end
-
       # Updates a promo code on AcceptOn
       #
       # @api public

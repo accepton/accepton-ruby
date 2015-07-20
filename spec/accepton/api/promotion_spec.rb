@@ -65,30 +65,6 @@ RSpec.describe AcceptOn::API::Promotion do
     end
   end
 
-  describe '#promo_code' do
-    let(:retrieval_request) { stub_get('/v1/promo_codes/20OFF') }
-
-    subject { client.promo_code('20OFF') }
-
-    context 'for a complete request' do
-      before do
-        retrieval_request
-          .to_return(body: fixture('promo_code.json'), headers: {content_type: 'application/json'})
-      end
-
-      it 'requests the correct resource' do
-        subject
-        expect(retrieval_request).to have_been_made
-      end
-
-      it 'returns the promo code' do
-        expect(subject.name).to eq('20OFF')
-        expect(subject.promo_type).to eq('amount')
-        expect(subject.value).to eq(20_00)
-      end
-    end
-  end
-
   describe '#update_promo_code' do
     let(:promo_code) { AcceptOn::PromoCode.new(name: '10OFF', promo_type: 'amount', value: 10_00) }
     let(:update_request) { stub_put('/v1/promo_codes/10OFF') }
