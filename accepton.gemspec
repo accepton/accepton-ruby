@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://developers.accepton.com"
   spec.license       = 'MIT'
 
-  spec.files  = %w[.yardopts LICENSE.md README.md Rakefile accepton.gemspec]
+  spec.files  = %w[.yardopts CHANGELOG.md LICENSE.md README.md Rakefile accepton.gemspec]
   spec.files += Dir['lib/**/*.rb']
   spec.require_paths = ['lib']
 
