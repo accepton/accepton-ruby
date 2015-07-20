@@ -34,6 +34,18 @@ module AcceptOn
       def charges(args = {})
         perform_get_with_objects('/v1/charges', args, AcceptOn::Charge)
       end
+
+      # Retrieves a transaction token from the API
+      #
+      # @api public
+      #
+      # @param id [String] The transaction token identifier
+      #
+      # @raises [AcceptOn::Error]
+      # @return [AcceptOn::TransactionToken]
+      def token(id)
+        perform_get_with_object("/v1/tokens/#{id}", {}, AcceptOn::TransactionToken)
+      end
     end
   end
 end

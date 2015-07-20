@@ -70,4 +70,39 @@ RSpec.describe AcceptOn::API::Querying do
       end
     end
   end
+
+  describe '#token' do
+    let(:token_request) { stub_get('/v1/tokens/txn_b43a7e1e51410639979ab2047c156caa') }
+
+    subject { client.token('txn_b43a7e1e51410639979ab2047c156caa') }
+
+    context 'for an existing token' do
+      before do
+        token_request
+          .to_return(body: fixture('token.json'), headers: {content_type: 'application/json'})
+      end
+
+      it 'requests the correct resource' do
+        subject
+        expect(token_request).to have_been_made
+      end
+
+      it 'returns the existing token' do
+        expect(subject.id).to eq('txn_b43a7e1e51410639979ab2047c156caa')
+        expect(subject.amount).to eq(1_00)
+        expect(subject.description).to eq('Test Description')
+      end
+    end
+
+    context 'for a non-existent token' do
+      before do
+        token_request
+          .to_return(status: 404, body: fixture('invalid_token.json'), headers: {content_type: 'application/json'})
+      end
+
+      it 'raises an error' do
+        expect { subject }.to raise_error(AcceptOn::Error::NotFound)
+      end
+    end
+  end
 end

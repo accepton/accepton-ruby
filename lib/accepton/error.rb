@@ -11,6 +11,9 @@ module AcceptOn
     # Raised when AcceptOn returns a 401 HTTP status code
     Unauthorized = Class.new(ClientError)
 
+    # Raised when AcceptOn returns a 404 HTTP status code
+    NotFound = Class.new(ClientError)
+
     # Raised when AcceptOn returns a 5xx HTTP status code
     ServerError = Class.new(self)
 
@@ -29,6 +32,7 @@ module AcceptOn
     ERRORS = {
       400 => AcceptOn::Error::BadRequest,
       401 => AcceptOn::Error::Unauthorized,
+      404 => AcceptOn::Error::NotFound,
       500 => AcceptOn::Error::InternalServerError,
       502 => AcceptOn::Error::BadGateway,
       503 => AcceptOn::Error::ServiceUnavailable,
