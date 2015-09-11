@@ -50,6 +50,26 @@ module AcceptOn
         perform_get_with_object("/v1/promo_codes/#{name}", {}, AcceptOn::PromoCode)
       end
 
+      # Retrieves a page of promo codes from AcceptOn
+      #
+      # @api public
+      #
+      # @example Retrieves the most recently created promo codes on the account
+      #   client.promo_codes
+      #
+      # @param args [Hash] A hash of query parameters
+      # @option args [String] :order The order to sort by (asc or desc).
+      # @option args [String] :order_by The field to order by (e.g. created_at).
+      # @option args [Integer] :page The page number to retrieve.
+      # @option args [Integer] :per_page The size of the page to retrieve (max: 100).
+      # @option args [String, Symbol] :promo_type The type of promo code to filter by.
+      #
+      # @raise [AcceptOn::Error] If an API error happens
+      # @return [Array<AcceptOn::PromoCode>] The retrieved promo codes
+      def promo_codes(args = {})
+        perform_get_with_objects('/v1/promo_codes', args, AcceptOn::PromoCode)
+      end
+
       # Retrieves a transaction token from the API
       #
       # @api public

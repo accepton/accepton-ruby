@@ -95,6 +95,58 @@ RSpec.describe AcceptOn::API::Querying do
     end
   end
 
+  describe '#promo_codes' do
+    let(:retrieval_request) { stub_get('/v1/promo_codes') }
+
+    subject { client.promo_codes(args) }
+
+    context 'for a complete request' do
+      context 'without any args' do
+        let(:args) { {} }
+
+        before do
+          retrieval_request
+            .with(query: {})
+            .to_return(body: fixture('promo_codes.json'), headers: {content_type: 'application/json'})
+        end
+
+        it 'requests the correct resource' do
+          subject
+          expect(retrieval_request).to have_been_made
+        end
+
+        it 'returns the promo codes' do
+          expect(subject.length).to eq(2)
+          subject.each do |promo_code|
+            expect(promo_code).to be_an AcceptOn::PromoCode
+          end
+        end
+      end
+
+      context 'filtering by promo type' do
+        let(:args) { {promo_type: 'percentage'} }
+
+        before do
+          retrieval_request
+            .with(query: {promo_type: 'percentage'})
+            .to_return(body: fixture('promo_codes.json'), headers: {content_type: 'application/json'})
+        end
+
+        it 'requests the correct resource' do
+          subject
+          expect(retrieval_request).to have_been_made
+        end
+
+        it 'returns the promo codes' do
+          expect(subject.length).to eq(2)
+          subject.each do |promo_code|
+            expect(promo_code).to be_an AcceptOn::PromoCode
+          end
+        end
+      end
+    end
+  end
+
   describe '#token' do
     let(:token_request) { stub_get('/v1/tokens/txn_b43a7e1e51410639979ab2047c156caa') }
 

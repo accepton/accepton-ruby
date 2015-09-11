@@ -8,7 +8,9 @@ scheme are considered to be bugs.
 
 ## [Unreleased][unreleased]
 
-- Nothing yet.
+### Added
+
+- Added support for querying lists of promo codes.
 
 ## 0.1.0 - 2015-07-20
 
