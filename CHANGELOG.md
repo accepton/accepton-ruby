@@ -6,7 +6,7 @@ scheme are considered to be bugs.
 
 [semver]: http://semver.org/spec/v2.0.0.html
 
-## [Unreleased][unreleased]
+## [0.2.0][0.2.0] - 2015-09-18
 
 ### Added
 
@@ -18,4 +18,5 @@ scheme are considered to be bugs.
 
 - Initial version.
 
-[unreleased]: https://github.com/accepton/accepton-ruby/compare/v0.1.0...HEAD
+[0.2.0]: https://github.com/accepton/accepton-ruby/compare/v0.1.0...v0.2.0
+[unreleased]: https://github.com/accepton/accepton-ruby/compare/v0.2.0...HEAD
