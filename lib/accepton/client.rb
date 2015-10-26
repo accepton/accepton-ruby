@@ -1,13 +1,17 @@
+require 'accepton/api/planning'
 require 'accepton/api/promotion'
 require 'accepton/api/querying'
 require 'accepton/api/refunding'
+require 'accepton/api/subscribing'
 require 'accepton/api/tokenization'
 
 module AcceptOn
   class Client
+    include AcceptOn::API::Planning
     include AcceptOn::API::Promotion
     include AcceptOn::API::Querying
     include AcceptOn::API::Refunding
+    include AcceptOn::API::Subscribing
     include AcceptOn::API::Tokenization
 
     attr_accessor :api_key, :environment

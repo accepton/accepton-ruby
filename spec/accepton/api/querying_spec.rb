@@ -71,6 +71,115 @@ RSpec.describe AcceptOn::API::Querying do
     end
   end
 
+  describe '#plan' do
+    let(:retrieval_request) { stub_get('/v1/plans/pln_123') }
+
+    subject { client.plan('pln_123') }
+
+    context 'for a complete request' do
+      before do
+        retrieval_request
+          .to_return(body: fixture('plan.json'), headers: {content_type: 'application/json'})
+      end
+
+      it 'requests the correct resource' do
+        subject
+        expect(retrieval_request).to have_been_made
+      end
+
+      it 'returns the plan' do
+        expect(subject.name).to eq('Test Plan')
+        expect(subject.amount).to eq(10_00)
+        expect(subject.currency).to eq('usd')
+        expect(subject.period_unit).to eq('month')
+      end
+    end
+  end
+
+  describe '#plans' do
+    let(:retrieval_request) { stub_get('/v1/plans') }
+
+    subject { client.plans }
+
+    context 'for a complete request' do
+      context 'without any args' do
+        let(:args) { {} }
+
+        before do
+          retrieval_request
+            .with(query: {})
+            .to_return(body: fixture('plans.json'), headers: {content_type: 'application/json'})
+        end
+
+        it 'requests the correct resource' do
+          subject
+          expect(retrieval_request).to have_been_made
+        end
+
+        it 'returns the plans' do
+          expect(subject.length).to eq(2)
+          subject.each do |plan|
+            expect(plan).to be_an AcceptOn::Plan
+          end
+        end
+      end
+    end
+  end
+
+  describe '#subscription' do
+    let(:retrieval_request) { stub_get('/v1/subscriptions/sub_123') }
+
+    subject { client.subscription('sub_123') }
+
+    context 'for a complete request' do
+      before do
+        retrieval_request
+          .to_return(body: fixture('subscription.json'), headers: {content_type: 'application/json'})
+      end
+
+      it 'requests the correct resource' do
+        subject
+        expect(retrieval_request).to have_been_made
+      end
+
+      it 'returns the subscription' do
+        expect(subject.email).to eq('test1@email.com')
+        expect(subject.active).to eq(true)
+        expect(subject.plan.name).to eq('Test Plan')
+      end
+    end
+  end
+
+  describe '#subscriptions' do
+    let(:retrieval_request) { stub_get('/v1/subscriptions') }
+
+    subject { client.subscriptions(args) }
+
+    context 'for a complete request' do
+      context 'without any args' do
+        let(:args) { {} }
+
+        before do
+          retrieval_request
+            .with(query: {})
+            .to_return(body: fixture('subscriptions.json'), headers: {content_type: 'application/json'})
+        end
+
+        it 'requests the correct resource' do
+          subject
+          expect(retrieval_request).to have_been_made
+        end
+
+        it 'returns the subscriptions' do
+          expect(subject.length).to eq(3)
+          subject.each do |subscription|
+            expect(subscription).to be_an AcceptOn::Subscription
+          end
+        end
+      end
+    end
+  end
+
   describe '#promo_code' do
     let(:retrieval_request) { stub_get('/v1/promo_codes/20OFF') }
 
