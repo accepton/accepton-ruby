@@ -11,7 +11,7 @@ module AcceptOn
       #
       # @param id [String] The charge identifier
       #
-      # @raises [AcceptOn::Error]
+      # @raise [AcceptOn::Error]
       # @return [AcceptOn::Charge]
       def charge(id)
         perform_get_with_object("/v1/charges/#{id}", {}, AcceptOn::Charge)
@@ -29,7 +29,7 @@ module AcceptOn
       # @option args [String] :order The order to sort by (asc or desc).
       # @option args [String] :order_by The field to order by (e.g. created_at).
       #
-      # @raises [AcceptOn::Error]
+      # @raise [AcceptOn::Error]
       # @return [AcceptOn::Charge]
       def charges(args = {})
         perform_get_with_objects('/v1/charges', args, AcceptOn::Charge)
@@ -41,7 +41,7 @@ module AcceptOn
       #
       # @param id [String] The plan identifier
       #
-      # @raises [AcceptOn::Error]
+      # @raise [AcceptOn::Error]
       # @return [AcceptOn::Plan]
       def plan(id)
         perform_get_with_object("/v1/plans/#{id}", {}, AcceptOn::Plan)
@@ -58,7 +58,7 @@ module AcceptOn
       # @option args [Integer] :per_page The size of the page to retrieve (max: 100).
       # @option args [String, Symbol] :period_unit The period unit to filter by.
       #
-      # @raises [AcceptOn::Error]
+      # @raise [AcceptOn::Error]
       # @return [AcceptOn::Plan]
       def plans(args = {})
         perform_get_with_objects('/v1/plans', args, AcceptOn::Plan)
@@ -67,6 +67,8 @@ module AcceptOn
       # Retrieves a subscription from AcceptOn
       #
       # @api public
+      #
+      # @param id [String] The subscription identifier.
       #
       # @raise [AcceptOn::Error]
       # @return [AcceptOn::Subscription]
@@ -133,7 +135,7 @@ module AcceptOn
       #
       # @param id [String] The transaction token identifier
       #
-      # @raises [AcceptOn::Error]
+      # @raise [AcceptOn::Error]
       # @return [AcceptOn::TransactionToken]
       def token(id)
         perform_get_with_object("/v1/tokens/#{id}", {}, AcceptOn::TransactionToken)
