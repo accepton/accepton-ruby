@@ -51,6 +51,13 @@ module AcceptOn
       #
       # @api public
       #
+      # @param args [Hash] A hash of query parameters
+      # @option args [String] :order The order to sort by (asc or desc).
+      # @option args [String] :order_by The field to order by (e.g. created_at).
+      # @option args [Integer] :page The page number to retrieve.
+      # @option args [Integer] :per_page The size of the page to retrieve (max: 100).
+      # @option args [String, Symbol] :period_unit The period unit to filter by.
+      #
       # @raises [AcceptOn::Error]
       # @return [AcceptOn::Plan]
       def plans(args = {})
