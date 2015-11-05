@@ -34,20 +34,11 @@ module AcceptOn
     def perform
       options_key = @request_method == :get ? :params : :form
       response = HTTP.with(@headers).public_send(@request_method, @uri.to_s, options_key => @options)
-      response_body = Hashie::Mash.new(process_response(response.parse))
+      response_body = Hashie::Mash.new(response.parse)
       fail_or_return_response_body(response_body, response.code)
     end
 
     private
-
-    # Make sure the response is properly passed into Hashie::Mash
-    def process_response(response)
-      if response.is_a?(Array)
-        { "object"=>"list", "total"=>response.size, "data"=>response }
-      else
-        response
-      end
-    end
 
     def fail_or_return_response_body(body, status_code)
       error = AcceptOn::Error.from_response(body, status_code)

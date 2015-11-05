@@ -10,9 +10,8 @@ scheme are considered to be bugs.
 
 ### Added
 
-- Added support for querying plans and subscriptions, 
+- Added support for querying plans and subscriptions,
 - Added support for creating plans and cancelling subscriptions.
-- Bugfix: Process array response received from /v1/plans before passing into Hashie::Mash
 
 ## [0.2.0][0.2.0] - 2015-09-18
 

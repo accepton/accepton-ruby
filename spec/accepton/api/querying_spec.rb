@@ -117,7 +117,7 @@ RSpec.describe AcceptOn::API::Querying do
         end
 
         it 'returns the plans' do
-          expect(subject.length).to eq(2)
+          expect(subject.length).to eq(3)
           subject.each do |plan|
             expect(plan).to be_an AcceptOn::Plan
           end
