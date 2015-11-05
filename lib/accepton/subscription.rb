@@ -1,12 +1,30 @@
 module AcceptOn
   class Subscription < Base
-    # @attr_reader email [String] The email belonging to the subscription
     # @attr_reader active [Boolean] The activity status of the subscription
-    # @attr_reader last_billed_at [DateTime] The time the subscription was last billed
-    # @attr_reader plan [Hash] The plan associated with the subscription
+    # @attr_reader email [String] The email belonging to the subscription
     # @attr_reader id [String] The subscription identifier
     #
     # @api public
-    attr_reader :email, :active, :last_billed_at, :id, :plan
+    attr_reader :active, :email, :id
+
+    alias_method :active?, :active
+
+    # The time the subscription was last billed
+    #
+    # @api public
+    #
+    # @return [Time]
+    def last_billed_at
+      Time.parse(@last_billed_at).utc unless @last_billed_at.nil?
+    end
+
+    # The plan the subscription is connected to
+    #
+    # @api public
+    #
+    # @return [AcceptOn::Plan]
+    def plan
+      AcceptOn::Plan.new(@plan)
+    end
   end
 end

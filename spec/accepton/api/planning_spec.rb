@@ -20,9 +20,10 @@ RSpec.describe AcceptOn::API::Planning do
       end
 
       it 'returns the created plan' do
-        expect(subject.name).to eq('Test Plan')
         expect(subject.amount).to eq(10_00)
+        expect(subject.created_at).to eq(Time.parse('2015-08-21T20:20:14.690+00:00'))
         expect(subject.currency).to eq('usd')
+        expect(subject.name).to eq('Test Plan')
         expect(subject.period_unit).to eq('month')
       end
     end

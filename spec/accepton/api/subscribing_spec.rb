@@ -18,7 +18,11 @@ RSpec.describe AcceptOn::API::Subscribing do
       end
 
       it 'returns the cancelled subscription' do
+        expect(subject).to be_active
         expect(subject.email).to eq('test1@email.com')
+        expect(subject.last_billed_at).to eq(Time.parse('2015-08-21T22:43:34.096+00:00'))
+        expect(subject.plan).to be_an(AcceptOn::Plan)
+        expect(subject.id).to eq('sub_123')
       end
     end
 
