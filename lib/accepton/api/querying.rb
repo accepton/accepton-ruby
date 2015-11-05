@@ -53,8 +53,8 @@ module AcceptOn
       #
       # @raises [AcceptOn::Error]
       # @return [AcceptOn::Plan]
-      def plans
-        perform_get_with_objects('/v1/plans', {}, AcceptOn::Plan)
+      def plans(args = {})
+        perform_get_with_objects('/v1/plans', args, AcceptOn::Plan)
       end
 
       # Retrieves a subscription from AcceptOn
