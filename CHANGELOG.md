@@ -6,12 +6,14 @@ scheme are considered to be bugs.
 
 [semver]: http://semver.org/spec/v2.0.0.html
 
-## [0.3.0][0.3.0] - 2015-10-26
+## [0.3.0][0.3.0] - 2015-11-06
 
 ### Added
 
-- Added support for querying plans and subscriptions,
-- Added support for creating plans and cancelling subscriptions.
+- Added support for creating plans.
+- Added support for querying singular and lists of plans.
+- Added support for cancelling subscriptions.
+- Added support for querying singular and lists of subscriptions.
 
 ## [0.2.0][0.2.0] - 2015-09-18
 
@@ -25,5 +27,6 @@ scheme are considered to be bugs.
 
 - Initial version.
 
+[0.3.0]: https://github.com/accepton/accepton-ruby/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/accepton/accepton-ruby/compare/v0.1.0...v0.2.0
 [unreleased]: https://github.com/accepton/accepton-ruby/compare/v0.2.0...HEAD
