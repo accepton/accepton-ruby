@@ -6,6 +6,10 @@ scheme are considered to be bugs.
 
 [semver]: http://semver.org/spec/v2.0.0.html
 
+## [Unreleased][unreleased]
+
+- Nothing yet.
+
 ## [0.3.0][0.3.0] - 2015-11-06
 
 ### Added
