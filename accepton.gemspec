@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'hashie', '~> 3.4'
   spec.add_dependency 'http', '~> 0.6.4'
+  spec.add_dependency 'addressable', '~> 2.4'
 
   spec.add_development_dependency 'bundler', '~> 1.8'
 end
