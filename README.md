@@ -11,7 +11,7 @@ The [AcceptOn](https://accepton.com) *DynamicKit* for rubyist.  Used for your ba
 
 #### 1. Install the gem
 ```sh
->gem install accepton
+gem install accepton
 ```
 
 #### 2. Continue with the documentation
