@@ -7,42 +7,16 @@
 # What is this?
 The [AcceptOn](https://accepton.com) *DynamicKit* for rubyist.  Used for your backend integration with AcceptOn.
 
-### Features
-  - [x] Generate goods dynamically
-  - [x] Verify that a charge completed and for the correct amount
-  - [x] List and search charges
-  - [x] Refund a charge
-  - [x] Create, read, and list plans
-  - [x] Cancel, retrieve, and list subscriptions
-  - [x] CRUD promo-codes
-
-
 ## Setup
 
 #### 1. Install the gem
 ```sh
 >gem install accepton
 ```
-    
-#### 2. Initialize the client
-```ruby
-require 'accepton'
 
-#Located under 'My Profile' in your accepton.com dashboard
-ACCEPTON_SECRET_KEY = 'skey_xxxxx'
-
-#The environment may be either :production or :staging
-client = AcceptOn::Client.new(api_key: ACCEPTON_SECRET_KEY, environment: :staging)
-```
-
-#### 3. Pick an example
-
- - [A RESTful service that auto-configures `CheckoutKit` and verifies the charge](./docs/RESTful_example.md)
- - [Listing charges for a particular date range](./docs/listing_charges.md)
- - [Refunding a charge](./docs/refunding_charge.md)
- - [Create, read, and list plans](./docs/plans.md)
- - [Cancel, retrieve, and list subscriptions](./docs/subscriptions.md)
- - [CRUD promo-codes](./docs/promo.md)
+#### 2. Continue with the documentation
+  - [Dynamic Kit Getting Started Guide](http://developers.accepton.com/guides/dynamic_kit.html)
+  - [Dynamic Kit Full API Reference](http://developers.accepton.com/guides/dynamic_kit_full_api.html)
 
 ## Contributing
 > ♥ This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
